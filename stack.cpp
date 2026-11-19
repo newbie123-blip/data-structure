@@ -71,7 +71,7 @@ public:
 			cout << "NULL\n";
 		}
 		else {
-			cout << "ªÅªºstack\n";
+			cout << "ç©ºçš„stack\n";
 		}
 	}
 };
@@ -121,13 +121,13 @@ public:
 			cout << "NULL\n";
 		}
 		else {
-			cout << "ªÅªºstack\n";
+			cout << "ç©ºçš„stack\n";
 		}
 	}
 };
 
 int main() {
-	stack<int> test;
+	Stack<int> test;
 	cout << "===== Stack Menu =====\n";
 	cout << "1. Push\n";
 	cout << "2. Pop\n";
@@ -142,7 +142,7 @@ int main() {
 		
 		if (temp == 1) {
 			int y;
-			cout << "¿é¤J ";
+			cout << "è¼¸å…¥ ";
 			cin >> y;
 			test.push(y);
 		}
@@ -155,10 +155,10 @@ int main() {
 		else if (temp == 4) {
 			test.isempty();
 			if (test.isempty()) {
-				cout << "ªÅ°}¦C\n";
+				cout << "ç©ºé™£åˆ—\n";
 			}
 			else {
-				cout << "¤£¬OªÅ°}¦C\n";
+				cout << "ä¸æ˜¯ç©ºé™£åˆ—\n";
 			}
 		}
 		else if (temp == 5) {
