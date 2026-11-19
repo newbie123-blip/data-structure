@@ -17,20 +17,20 @@ class chainNode {
 	friend Queue<T>;
 private:
 	T data;
-	chainNode<T>* link=nullptr;
+	chainNode<T>* link = nullptr;
 public:
-	chainNode(){}
-	chainNode(const T& data) {this->data = data; }
-	chainNode(const T& data, chainNode<T>* link){this->data = data; this->link = link; }
+	chainNode() {}
+	chainNode(const T& data) { this->data = data; }
+	chainNode(const T& data, chainNode<T>* link) { this->data = data; this->link = link; }
 };
 
 template<class T>
 class chain {
 private:
-	chainNode<T>*first;
+	chainNode<T>* first;
 public:
 	chain() { first = 0; }
-	~chain(){
+	~chain() {
 		while (first != nullptr) {
 			chainNode<T>* next = first->link;
 			delete first;
@@ -56,22 +56,22 @@ public:
 		header->link = delnode->link;
 		delete delnode;
 	}
-	bool isempty() { return header->link==header; }
+	bool isempty() { return header->link == header; }
 
 	void top() {
-		cout << header->link->data<<"\n";
+		cout << header->link->data << "\n";
 	}
 	void display() {
 		if (!isempty()) {
-			chainNode<T>* point =header->link;
-			while(point!= header) {
+			chainNode<T>* point = header->link;
+			while (point != header) {
 				cout << point->data << " -> ";
 				point = point->link;
 			}
 			cout << "NULL\n";
 		}
 		else {
-			cout << "ªÅªºstack\n";
+			cout << "ç©ºçš„stack\n";
 		}
 	}
 };
@@ -91,10 +91,10 @@ public:
 	}
 
 	void push(const T& ndata) {
-		chainNode<T>*newnode = new chainNode<T>(ndata, rear->link);
+		chainNode<T>* newnode = new chainNode<T>(ndata, rear->link);
 		rear->link = newnode;
 		rear = newnode;
-		
+
 	}
 	void pop() {
 		chainNode<T>* delnode = front->link;
@@ -121,28 +121,29 @@ public:
 			cout << "NULL\n";
 		}
 		else {
-			cout << "ªÅªºstack\n";
+			cout << "ç©ºçš„stack\n";
 		}
 	}
 };
 
 int main() {
-	stack<int> test;
-	cout << "===== Stack Menu =====\n";
+	Queue<int> test;
+	cout << "===== Queue Menu =====\n";
 	cout << "1. Push\n";
 	cout << "2. Pop\n";
-	cout << "3. top\n";
-	cout << "4. isempty\n";
-	cout << "5. display\n";
-	cout << "6. Exit\n";
+	cout << "3. front\n";
+	cout << "4. rear\n";
+	cout << "5. isempty\n";
+	cout << "6. display\n";
+	cout << "7. Exit\n";
 	cout << "choice : ";
 	int x;
-	while (cin>>x) {
-		int temp=x;
-		
+	while (cin >> x) {
+		int temp = x;
+
 		if (temp == 1) {
 			int y;
-			cout << "¿é¤J ";
+			cout << "è¼¸å…¥ ";
 			cin >> y;
 			test.push(y);
 		}
@@ -150,30 +151,34 @@ int main() {
 			test.pop();
 		}
 		else if (temp == 3) {
-			test.top();
+			test.ffront();
 		}
 		else if (temp == 4) {
-			test.isempty();
-			if (test.isempty()) {
-				cout << "ªÅ°}¦C\n";
-			}
-			else {
-				cout << "¤£¬OªÅ°}¦C\n";
-			}
+			test.rrear();
 		}
 		else if (temp == 5) {
-			test.display();
+			test.isempty();
+			if (test.isempty()) {
+				cout << "ç©ºé™£åˆ—\n";
+			}
+			else {
+				cout << "ä¸æ˜¯ç©ºé™£åˆ—\n";
+			}
 		}
 		else if (temp == 6) {
+			test.display();
+		}
+		else if (temp == 7) {
 			break;
 		}
-		cout << "===== Stack Menu =====\n";
+		cout << "===== Queue Menu =====\n";
 		cout << "1. Push\n";
 		cout << "2. Pop\n";
-		cout << "3. top\n";
-		cout << "4. isempty\n";
-		cout << "5. display\n";
-		cout << "6. Exit\n";
+		cout << "3. front\n";
+		cout << "4. rear\n";
+		cout << "5. isempty\n";
+		cout << "6. display\n";
+		cout << "7. Exit\n";
 		cout << "choice : ";
 	}
 
